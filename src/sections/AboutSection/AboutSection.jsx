@@ -3,6 +3,7 @@ import { motion, useTransform, useSpring } from "framer-motion";
 import { MapPin, Wifi } from "lucide-react";
 import CautionSign from "../../components/Animated/CautionSign";
 import FlickerBox from "../../components/Animated/FlickerBox";
+import { PiCursorLight } from "react-icons/pi";
 import "./AboutSection.css";
 
 // Memoized image component for better performance
@@ -384,7 +385,7 @@ const AboutSection = memo(
               duration: 0.8,
               repeat: Infinity, // repeat forever
               repeatType: "reverse", // smoothly goes back and forth
-              repeatDelay:10,
+              repeatDelay: 10,
               ease: "easeInOut",
             }}
             layout
@@ -445,9 +446,21 @@ const AboutSection = memo(
               {/* Main Content */}
               <div className="relative h-96 flex justify-center pb-5">
                 <div className="h-full z-20 flex flex-col justify-center gap-2 rounded-2xl p-5">
-                  <h2 className="text-black font-oswald text-3xl font-bold uppercase animated-gradient-text">
-                    Certified Full-Stack Developer
-                  </h2>
+                  <div className="flex items-center gap-0.5 ">
+                    <div className="border h-full w-fit px-1 flex items-center">
+                      <motion.span
+                      initial={{rotate:0}}
+                      animate={{rotate:180}}
+                      transition={{delay:1,duration:0.8,repeat:"infinity",repeatDelay:2}}
+                      >
+
+                      <PiCursorLight />
+                      </motion.span>
+                    </div>
+                    <h2 className="text-black font-oswald text-3xl font-bold uppercase animated-gradient-text">
+                      Certified Full-Stack Developer
+                    </h2>
+                  </div>
                   <div className="flex items-center justify-center">
                     <motion.p
                       className="text-black font-oswald text-2xl leading-10"
@@ -477,7 +490,7 @@ const AboutSection = memo(
               duration: 0.8,
               repeat: Infinity,
               repeatType: "reverse",
-              repeatDelay:10,
+              repeatDelay: 10,
               ease: "easeInOut",
             }}
             className="h-inherit "
