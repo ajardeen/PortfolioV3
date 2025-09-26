@@ -1,0 +1,36 @@
+.scrollbar-hide {
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scrollbar-width: none; /* For Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+.top {
+  height: 95vh;
+  border-bottom: 0.8px solid var(--theme-line-color);
+  border-right: 0.8px solid var(--theme-line-color);
+  flex-shrink: 0; /* don’t let it shrink */
+ 
+      border-top-left-radius: 10px;
+}
+.nav-container {
+  /* height: 95vh; */
+  /* border-top: 0.8px solid var(--theme-line-color); */
+  border-bottom: 0.8px solid var(--theme-line-color);
+  border-right: 0.8px solid var(--theme-line-color);
+  flex-shrink: 0; /* don’t let it shrink */
+  display: flex;
+  align-items: center;
+      border-top-left-radius: 10px;
+}
+.menu-container{
+  /* border-bottom: 0.8px solid var(--theme-line-color); */
+ height: 51px;
+ display: flex;
+ align-items: center;
+  border-top: 0.8px solid var(--theme-line-color);
+
+ width: 100%;
+
+}

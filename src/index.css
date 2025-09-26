@@ -1,0 +1,30 @@
+.font-anton {
+  font-family: 'Anton', sans-serif;
+}
+.font-oswald {
+  font-family: "Oswald", sans-serif;
+}
+
+
+html,
+body {
+  overflow: auto; /* Remove overflow: hidden */
+  height: 100%;
+  /* Add these for better performance */
+  transform: translate3d(0, 0, 0);
+  background-color: black;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media screen and (min-width: 1540px) {
+  #app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto; /* centers container */
+  }
+}

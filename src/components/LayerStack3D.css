@@ -1,0 +1,78 @@
+/* place next to component and import with `import "./LayerStack3D.css"` */
+
+:root {
+  --width: 380px;
+  --height: 240px;
+  --radius: 18px;
+  --bg: #07070a;
+}
+
+.ls-container{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: var(--bg);
+  perspective: 1400px; /* important: perspective applied to parent of the transformed scene */
+  -webkit-font-smoothing:antialiased;
+}
+
+.ls-scene{
+  width: var(--width);
+  height: var(--height);
+  position: relative;
+  transform-style: preserve-3d; /* keep children 3D */
+  transform: rotateX(52deg) rotateZ(32deg); /* angled view like your reference */
+  will-change: transform;
+}
+
+/* wrapper that holds the translateZ depth */
+.layer-3d{
+  position: absolute;
+  inset: 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transform-style: preserve-3d;
+}
+
+/* the visible face that Framer Motion animates (y) */
+.layer{
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  backface-visibility: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* blurred rim/back glow for neon feel */
+.layer .glow{
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  filter: blur(14px);
+  transform: translateZ(-1px);
+}
+
+/* label sits above the glow */
+.label{
+  z-index: 2;
+  font-size: 20px;
+}
+
+/* small responsive tweak */
+@media (max-width: 520px){
+  :root { --width: 300px; --height: 200px; }
+  .label { font-size: 16px; }
+}

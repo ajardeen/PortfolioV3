@@ -1,0 +1,158 @@
+/* Additional CSS for optimized AboutSection */
+
+/* Enhanced custom box with better performance */
+.custom-box-optimized {
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  color: #000000;
+  position: absolute;
+  left: -0.25rem;
+  top: -0.25rem;
+  z-index: 1;
+  padding: 0.75rem 2.75rem;
+  border-bottom-right-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(255, 255, 255, 1);
+  
+  /* Critical performance optimizations */
+  will-change: transform, opacity;
+  contain: layout style paint;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+.custom-box-optimized::after {
+  position: absolute;
+  content: "";
+  top: -0.058rem;
+  right: -1.178rem;
+  background: transparent;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-bottom-right-radius: 1rem;
+  box-shadow: 0.313rem 0.313rem 0 0.313rem #ffffff;
+  transform: rotate(-180deg);
+  will-change: transform;
+}
+
+/* Optimized profile clip path */
+.profile-clipPath {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);
+  will-change: transform, height;
+  contain: layout style paint;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  isolation: isolate;
+}
+
+/* Performance optimizations for images */
+.optimized-image-container {
+  will-change: contents;
+  contain: layout style paint;
+}
+
+.optimized-image-container img {
+  will-change: opacity;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  image-rendering: optimizeQuality;
+}
+
+/* Loading placeholder animation */
+.loading-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Optimize button interactions */
+.interactive-button {
+  will-change: transform;
+  contain: layout style paint;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.interactive-button:hover {
+  transform: translate3d(0, 0, 0) scale(1.02);
+}
+
+.interactive-button:active {
+  transform: translate3d(0, 0, 0) scale(0.98);
+}
+
+/* Content visibility optimization */
+.viewport-optimized {
+  content-visibility: auto;
+  contain-intrinsic-size: 400px 450px;
+}
+
+/* Reduce layout shifts */
+.fixed-dimensions {
+  contain: layout style size;
+}
+
+/* Optimize text rendering */
+.optimized-text {
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* GPU-accelerated transforms */
+.gpu-transform {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Intersection observer optimizations */
+.intersection-target {
+  contain: layout style paint;
+  will-change: contents;
+}
+.action-button-style{
+  background-image:  linear-gradient(150deg, #f26c33 0%, #f7bb52 83%);;
+}
+.cartoon-button-style{
+  background-color: #000000;
+  color: #f7bb52;
+  font-family: 'Anton', sans-serif;
+  font-display: swap; 
+  font-size: 2rem;
+  padding: 5px 40px;
+  border-bottom-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+.animated-gradient-text {
+  background: linear-gradient(150deg, #f26c33, #f7bb52, #f26c33);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 10s ease-in-out infinite; /* slow transition */
+  font-weight: bold;
+  display: inline-block;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

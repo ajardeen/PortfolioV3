@@ -1,0 +1,130 @@
+.introaibg {
+  background-image: url('./image/introaibg.png');
+  background-repeat: no-repeat;
+  animation: bg-pan 60s linear infinite;
+  background-size: 110%;
+  background-position: left; /* Starting position */
+}
+
+@keyframes bg-pan {
+  0% {
+    background-position: left;
+  }
+  50% {
+    background-position: right;
+  }
+  100% {
+    background-position: left;
+  }
+}
+
+
+.introbg_overlay{
+    background-color: #000000;
+opacity: 0.8;
+background-image:  linear-gradient(#111111 0.5px, transparent 0.5px), linear-gradient(to right, #111111 0.5px, #000000 0.5px);
+background-size: 10px 10px;
+}
+
+
+/* === TV GLITCH EFFECT === */
+.tv-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #0f0;
+  font-family: monospace;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.tv-screen::before,
+.tv-screen::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: #0f0;
+  background: #111;
+  clip-path: inset(0 0 0 0);
+}
+
+.tv-screen::before {
+  animation: glitch-anim-tv 2s infinite linear alternate-reverse;
+  color: #f0f;
+  z-index: 2;
+}
+
+.tv-screen::after {
+  animation: glitch-anim-tv 1.5s infinite linear alternate-reverse;
+  color: #0ff;
+  z-index: 1;
+}
+
+@keyframes glitch-anim-tv {
+  0% {
+    clip-path: inset(20% 0 60% 0);
+    transform: translate(-3px, -2px);
+  }
+  20% {
+    clip-path: inset(10% 0 70% 0);
+    transform: translate(3px, 2px);
+  }
+  40% {
+    clip-path: inset(40% 0 40% 0);
+    transform: translate(-2px, 0);
+  }
+  60% {
+    clip-path: inset(80% 0 5% 0);
+    transform: translate(2px, -1px);
+  }
+  80% {
+    clip-path: inset(50% 0 30% 0);
+    transform: translate(-1px, 2px);
+  }
+  100% {
+    clip-path: inset(10% 0 80% 0);
+    transform: translate(1px, -2px);
+  }
+}
+/* TV glitch container */
+.glitch {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Each glitch layer */
+.glitch-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+/* These animations are already in your uploaded file */
+.glitch-img:nth-child(2) {
+  animation: glitch-anim-1 4s infinite linear 2s;
+}
+.glitch-img:nth-child(3) {
+  animation: glitch-anim-2 4s infinite linear 2s;
+}
+.glitch-img:nth-child(4) {
+  animation: glitch-anim-3 4s infinite linear 2s;
+}
+.glitch-img:nth-child(5) {
+  background-color: #862a2a;
+  background-blend-mode: overlay;
+  animation: glitch-anim-flash 4s infinite linear 2s;
+}

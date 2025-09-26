@@ -1,0 +1,22 @@
+.box-shape-1 {
+  background-color: #6f6f6f;
+  width: 170px;
+  height: 70px;
+  border-radius: 4px;
+}
+.box-shape-2 {
+  background-color: transparent;
+  /* width: 50px;
+    height: 50px; */
+  border-radius: 4px;
+  rotate: 90deg;
+  color: #6f6f6f !important;
+}
+.box-shape-3 {
+  /* background-color: yellow; /
+    / width: fit-content;
+    height: fit-content; */
+  border-radius: 4px;
+  rotate: 90deg;
+  color: #6f6f6f !important;
+}

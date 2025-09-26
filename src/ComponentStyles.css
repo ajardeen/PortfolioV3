@@ -1,0 +1,28 @@
+.font-oswald {
+  font-family: "Oswald", sans-serif;
+}
+
+
+.hazard-background {
+  height: 15px;
+  color: white;
+  padding: 5px;
+  background-image: repeating-linear-gradient(
+    -55deg,
+    #000,
+    #000 20px,
+    #FFEA0B 20px,
+    #FFEA0B 40px
+  );
+}
+
+.hazard-border {
+  border: 10px solid pink;
+  border-image: repeating-linear-gradient(
+    -55deg,
+    #000,
+    #000 20px,
+    #FFEA0B 20px,
+    #FFEA0B 40px
+  ) 10;
+}
