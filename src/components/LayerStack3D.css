@@ -1,78 +1,51 @@
-/* place next to component and import with `import "./LayerStack3D.css"` */
-
-:root {
-  --width: 380px;
-  --height: 240px;
-  --radius: 18px;
-  --bg: #07070a;
+.layer-stack-container {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0px 20px;
 }
 
-.ls-container{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background: var(--bg);
-  perspective: 1400px; /* important: perspective applied to parent of the transformed scene */
-  -webkit-font-smoothing:antialiased;
-}
-
-.ls-scene{
-  width: var(--width);
-  height: var(--height);
+.layer-card {
   position: relative;
-  transform-style: preserve-3d; /* keep children 3D */
-  transform: rotateX(52deg) rotateZ(32deg); /* angled view like your reference */
-  will-change: transform;
-}
-
-/* wrapper that holds the translateZ depth */
-.layer-3d{
-  position: absolute;
-  inset: 0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  width: 350px;
+  height: 250px;
   transform-style: preserve-3d;
+  transform: rotateY(-15deg) rotateX(61deg) rotateZ(10deg); /* default tilt */
 }
 
-/* the visible face that Framer Motion animates (y) */
-.layer{
+.layer {
+  position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: var(--radius);
-  position: relative;
-  overflow: hidden;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color: #fff;
-  font-weight: 800;
-  letter-spacing: 0.6px;
-  backface-visibility: hidden;
-  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+  font-size: 1.2rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  will-change: transform; /* 🟢 GPU hint */
 }
 
-/* blurred rim/back glow for neon feel */
-.layer .glow{
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  z-index: 0;
-  pointer-events: none;
-  mix-blend-mode: screen;
-  filter: blur(14px);
-  transform: translateZ(-1px);
+.layer1, .layer2, .layer3 {
+  background: transparent;
+  padding: 12px;
+  border: 2px solid #fff;
 }
 
-/* label sits above the glow */
-.label{
-  z-index: 2;
-  font-size: 20px;
+.dashboard-img,
+.database-img,
+.api-img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
 }
 
-/* small responsive tweak */
-@media (max-width: 520px){
-  :root { --width: 300px; --height: 200px; }
-  .label { font-size: 16px; }
-}
+.dashboard-img { background-image: url('/image/dashboardimg.png'); }
+.database-img { background-image: url('/image/databaseimg.png'); }
+.api-img { background-image: url('/image/apiimg.png'); }

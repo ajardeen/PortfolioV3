@@ -5,7 +5,18 @@
   background-size: 110%;
   background-position: left; /* Starting position */
 }
+.cardHeaderBgAnimated {
 
+  background-image: 
+    linear-gradient(137deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.5)), 
+    url('./image/azarbg_pattern_Strech.png');
+  
+  backdrop-filter: blur(20px);
+  background-repeat: no-repeat;
+  animation: bg-pan 60s linear infinite;
+  background-size: 130%;
+  background-position: left; 
+}
 @keyframes bg-pan {
   0% {
     background-position: left;
@@ -127,4 +138,10 @@ background-size: 10px 10px;
   background-color: #862a2a;
   background-blend-mode: overlay;
   animation: glitch-anim-flash 4s infinite linear 2s;
+}
+.bottom-overlay-image{
+  background-image: url('/image/bottom-overlay.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  
 }

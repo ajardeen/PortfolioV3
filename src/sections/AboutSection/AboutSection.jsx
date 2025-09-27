@@ -173,7 +173,7 @@ const InfiniteScrollingText = memo(() => {
             DEVELOPER
           </span>
           <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
+            CERATIVITY
           </span>
           <span className="text-8xl font-anton text-outline italic pr-20">
             DEVELOPER
@@ -366,7 +366,9 @@ const AboutSection = memo(
     };
 
     return (
-      <section
+      <section 
+
+      id="about"
         className="full min-h-[100vh] overflow-hidden flex flex-col justify-between relative"
         ref={aboutSectionRef}
         style={{
@@ -378,17 +380,17 @@ const AboutSection = memo(
         <div className="flex relative">
           {/* Left Content Section */}
           <motion.div
-            initial={{ width: "60%" }}
-            animate={{ width: "70%" }}
-            transition={{
-              // delay: 10,
-              duration: 0.8,
-              repeat: Infinity, // repeat forever
-              repeatType: "reverse", // smoothly goes back and forth
-              repeatDelay: 10,
-              ease: "easeInOut",
-            }}
-            layout
+            // initial={{ width: "60%" }}
+            // whileHover={{ width: "70%" }}
+            // transition={{
+            //   // delay: 10,
+            //   duration: 0.8,
+            //   repeat: Infinity, // repeat forever
+            //   repeatType: "reverse", // smoothly goes back and forth
+            //   repeatDelay: 10,
+            //   ease: "easeInOut",
+            // }}
+            // layout
             className="relative "
           >
             <div className="relative flex items-start justify-start py-10 px-10 overflow-hidden">
@@ -483,17 +485,17 @@ const AboutSection = memo(
 
           {/* Right Image Container */}
           <motion.div
-            initial={{ width: "40%" }}
-            animate={{ width: "30%" }}
-            transition={{
-              // delay: 10,
-              duration: 0.8,
-              repeat: Infinity,
-              repeatType: "reverse",
-              repeatDelay: 10,
-              ease: "easeInOut",
-            }}
-            className="h-inherit "
+            // initial={{ width: "40%" }}
+            // whileHover={{ width: "30%" }}
+            // transition={{
+            //   // delay: 10,
+            //   duration: 0.8,
+            //   repeat: Infinity,
+            //   repeatType: "reverse",
+            //   repeatDelay: 10,
+            //   ease: "easeInOut",
+            // }}
+            className="h-inherit w-[45%] "
             ref={containerRef}
           >
             <div className="px-4 h-20 w-full relative flex justify-end p-4 items-start gap-2">

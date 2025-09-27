@@ -81,14 +81,16 @@ function IntroSection({
         initial={{opacity:0}}
         animate={{opacity:1}}
         transition={{delay:2,duration:1}}
-        className="absolute -bottom-5 right-10 w-60 h-35 rounded-4xl overflow-hidden bg-amber-50">
+        className="absolute -bottom-5 right-10 w-60 h-35 z-60  rounded-4xl overflow-hidden bg-amber-50">
           <TvGlitch
             frameImg="/image/tvimg.png"
             screenImg="/image/profileimage.jpg"
           />
         </motion.div>
       </div>
-      
+      <div className="bottom-overlay-image absolute bottom-0 z-50 h-96 w-full">
+
+      </div>
     </section>
   );
 }

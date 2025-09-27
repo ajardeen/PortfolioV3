@@ -20,6 +20,9 @@ import LayerStack from "./components/LayerStack";
 import IntroSection from "./sections/IntroSection";
 import Lenis from "@studio-freight/lenis";
 import AboutSection from "./sections/AboutSection/AboutSection";
+import FooterSection from "./sections/FooterSection/FooterSection";
+import Card from "./sections/SkillSections/components/Card";
+import SkillSections from "./sections/SkillSections/SkillSections";
 
 function App() {
   const [countLimit] = useState(8);
@@ -289,36 +292,11 @@ function App() {
             lenis={lenisRef.current} 
           />
 
-          <section
-            ref={skillSectionRef}
-            className="full h-[200vh] z-10 relative p-1 w-full bg-white"
-          >
-            <div
-              className="card-mask border border-black w-full z-10 h-96 shadow-lg rounded-2xl"
-              style={{
-                position: "sticky",
-                top: 0,
-                maskImage: `url(./image/cardSvg.svg)`,
-                maskRepeat: "no-repeat",
-                maskPosition: "center",
-                maskSize: 250,
-                willChange: "transform",
-              }}
-            >
-              <img
-                src="/image/your-background-content-image.jpg"
-                alt="Revealed content"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
-
-            <div className="bg-blue-500 z-0">
-              <LayerStack />
-            </div>
-          </section>
+          <SkillSections skillSectionRef={skillSectionRef}/>
 
           <section id="project" className="h-[100vh] bg-amber-50">projects</section>
+
+          <FooterSection  lenis={lenisRef.current} />
         </div>
       </div>
     </motion.div>
