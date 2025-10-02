@@ -274,29 +274,51 @@ function App() {
             perspective: 1000,
           }}
         >
-          {/* INTRO SECTION */}
-          <IntroSection
-            introSectionRef={introSectionRef}
-            parallaxFrontX={parallaxFrontX}
-            parallaxScrollFrontY={parallaxScrollFrontY}
-            parallaxScrollBgY={parallaxScrollBgY}
-          />
+          <div className="w-full h-[200vh]">
+            <div className="sticky top-0 z-0">
+              {/* INTRO SECTION */}
+              <IntroSection
+                introSectionRef={introSectionRef}
+                parallaxFrontX={parallaxFrontX}
+                parallaxScrollFrontY={parallaxScrollFrontY}
+                parallaxScrollBgY={parallaxScrollBgY}
+              />
+            </div>
+            <div className="z-auto ">
+              <AboutSection
+                aboutSectionRef={aboutSectionRef} // Scroll target ref
+                textPositionY={textPositionY} // Motion value for text Y position
+                textOpacity={textOpacity} // Motion value for text opacity
+                hrLineOpacity={hrLineOpacity} // Motion value for HR line opacity
+                profileHeight={profileHeight} // Motion value for profile height
+                mediaPositionY={mediaPositionY} // Motion value for image Y position
+                lenis={lenisRef.current}
+              />
+            </div>
+          </div>
 
-          <AboutSection
-            aboutSectionRef={aboutSectionRef} // Scroll target ref
-            textPositionY={textPositionY} // Motion value for text Y position
-            textOpacity={textOpacity} // Motion value for text opacity
-            hrLineOpacity={hrLineOpacity} // Motion value for HR line opacity
-            profileHeight={profileHeight} // Motion value for profile height
-            mediaPositionY={mediaPositionY} // Motion value for image Y position
-            lenis={lenisRef.current} 
-          />
+          <SkillSections skillSectionRef={skillSectionRef} />
 
-          <SkillSections skillSectionRef={skillSectionRef}/>
+          <div className="h-[200vh] bg-[#445454] ">
+            <div className="h-[30vh]  flex items-center justify-center sticky top-0 z-10 bg-black"></div>
+            <div className="h-[40vh] flex items-center justify-center sticky top-[30%] z-0 bg-black">
+              <h1 className="font-anton tracking-widest text-9xl uppercase text-white">
+                Experience
+              </h1>
+            </div>
 
-          <section id="project" className="h-[100vh] bg-amber-50">projects</section>
+            <section
+              id="experience"
+              className="h-[100vh] bg-[#000] border-white border text-white sticky bottom-0 z-10"
+            >
+              experience
+            </section>
+          </div>
 
-          <FooterSection  lenis={lenisRef.current} />
+          <section id="project" className="h-[100vh] bg-white">
+            projects
+          </section>
+          <FooterSection lenis={lenisRef.current} />
         </div>
       </div>
     </motion.div>

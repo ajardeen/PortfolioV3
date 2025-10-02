@@ -1,5 +1,6 @@
 .introaibg {
-  background-image: url('./image/introaibg.png');
+
+  background-image: url('./image/introaibg2.png');
   background-repeat: no-repeat;
   animation: bg-pan 60s linear infinite;
   background-size: 110%;

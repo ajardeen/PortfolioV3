@@ -11,7 +11,7 @@ function IntroSection({
   return (
     <section
       ref={introSectionRef}
-      className=" h-[100vh] p-1    relative overflow-hidden select-none introaibg snap-start"
+      className=" h-[100vh] p-1  relative overflow-hidden select-none introaibg snap-start"
     >
       {/* animated pattern goes here  */}
       {/* left side  */}

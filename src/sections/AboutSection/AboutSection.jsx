@@ -71,26 +71,12 @@ const ProfileImage = memo(
           containIntrinsicSize: "400px 450px",
           contentVisibility: isInView ? "visible" : "auto",
         }}
-        className="overflow-hidden pt-1 pl-1 rounded-md max-w-[400px] profile-clipPath"
+        className="overflow-hidden pt-1 pl-1 rounded-md max-w-[400px] "
         initial={{ opacity: 0 }}
         animate={{ opacity: isInView ? 1 : 0 }}
         transition={{ duration: 0.3 }}
       >
-        {/* Conditionally render CautionSign */}
-        {isInView && (
-          <motion.div
-            className="w-screen absolute -left-50 rotate-[-45deg] z-20"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.4 }}
-            style={{
-              willChange: "transform",
-              contain: "layout style paint",
-            }}
-          >
-            <CautionSign />
-          </motion.div>
-        )}
+      
 
         {/* Custom box */}
         <motion.div
@@ -111,6 +97,7 @@ const ProfileImage = memo(
           {!imageLoaded && isInView && (
             <div className="absolute inset-0 bg-gray-200 animate-pulse rounded-md" />
           )}
+          
 
           {imageLoaded && (
             <motion.img
@@ -149,112 +136,74 @@ ProfileImage.displayName = "ProfileImage";
 
 // Animated scrolling text component
 const InfiniteScrollingText = memo(() => {
+  const textItems = [
+    "DEVELOPER",
+    "CREATIVITY",
+    "DEVELOPER",
+    "DEVELOPER",
+    "DEVELOPER",
+    "CREATIVITY",
+    "DEVELOPER",
+    "DEVELOPER",
+    "DEVELOPER",
+    "CREATIVITY",
+    "DEVELOPER",
+    "DEVELOPER",
+    "DEVELOPER",
+    "DEVELOPER",
+    "CREATIVITY",
+    "DEVELOPER",
+    "DEVELOPER",
+    "DEVELOPER",
+    "CREATIVITY",
+    "DEVELOPER",
+    "DEVELOPER",
+    "DEVELOPER",
+    "CREATIVITY",
+    "DEVELOPER",
+    "DEVELOPER",
+    "DEVELOPER",
+    "DEVELOPER",
+    "CREATIVITY",
+    "DEVELOPER",
+    "DEVELOPER",
+    "DEVELOPER",
+    "CREATIVITY",
+    "DEVELOPER",
+    "DEVELOPER",
+    "DEVELOPER",
+    "CREATIVITY",
+    "DEVELOPER",
+    "DEVELOPER",
+    "DEVELOPER",
+  ];
+
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <div className="flex">
-        <motion.div
-          className="flex whitespace-nowrap"
-          animate={{
-            x: ["-100%", "100%"],
-          }}
-          transition={{
-            duration: 200,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          style={{
-            willChange: "transform",
-          }}
-        >
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            CERATIVITY
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-        </motion.div>
-        <motion.div
-          className="flex whitespace-nowrap"
-          animate={{
-            x: ["-100%", "100%"],
-          }}
-          transition={{
-            duration: 200,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          style={{
-            willChange: "transform",
-          }}
-        >
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-          <span className="text-8xl font-anton text-outline italic pr-20">
-            DEVELOPER
-          </span>
-        </motion.div>
-      </div>
+      <motion.div
+        className="flex whitespace-nowrap"
+        animate={{ x: ["-100%", "100%"] }}
+        transition={{
+          duration: 60, // speed of scroll
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        style={{ willChange: "transform" }}
+      >
+        {/* duplicate the content twice so it loops seamlessly */}
+        {[...Array(2)].map((_, idx) => (
+          <div key={idx} className="flex">
+            {textItems.map((word, i) => (
+              <span
+                key={`${idx}-${i}`}
+                className="text-8xl font-anton text-outline italic pr-20"
+              >
+                {word}
+              </span>
+            ))}
+          </div>
+        ))}
+      </motion.div>
     </div>
   );
 });
@@ -366,10 +315,9 @@ const AboutSection = memo(
     };
 
     return (
-      <section 
-
-      id="about"
-        className="full min-h-[100vh] overflow-hidden flex flex-col justify-between relative"
+      <section
+        id="about"
+        className="full min-h-[100vh] overflow-hidden flex flex-col bg-white justify-between relative"
         ref={aboutSectionRef}
         style={{
           contain: "layout style paint",
@@ -451,12 +399,16 @@ const AboutSection = memo(
                   <div className="flex items-center gap-0.5 ">
                     <div className="border h-full w-fit px-1 flex items-center">
                       <motion.span
-                      initial={{rotate:0}}
-                      animate={{rotate:180}}
-                      transition={{delay:1,duration:0.8,repeat:"infinity",repeatDelay:2}}
+                        initial={{ rotate: 0 }}
+                        animate={{ rotate: 180 }}
+                        transition={{
+                          delay: 1,
+                          duration: 0.8,
+                          repeat: "infinity",
+                          repeatDelay: 2,
+                        }}
                       >
-
-                      <PiCursorLight />
+                        <PiCursorLight />
                       </motion.span>
                     </div>
                     <h2 className="text-black font-oswald text-3xl font-bold uppercase animated-gradient-text">
@@ -527,6 +479,21 @@ const AboutSection = memo(
                 textOpacity={textOpacity}
                 isInView={isInView}
               />
+                {/* Conditionally render CautionSign */}
+        {isInView && (
+          <motion.div
+            className="w-screen absolute -left-90 rotate-[-45deg] z-20"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.4 }}
+            style={{
+              willChange: "transform",
+              contain: "layout style paint",
+            }}
+          >
+            <CautionSign />
+          </motion.div>
+        )}
               <hr style={{ opacity: hrLineOpacity }} className="line-bottom" />
             </div>
 
