@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback, use } from "react";
 import Layout from "./layouts/Layout";
 import {
   motion,
@@ -68,18 +68,20 @@ function App() {
   // Use springs for smoother animations
   const profileHeight = useSpring(
     useTransform(scrollYProgress, [0.4, 0.5], [200, 500]),
-    { stiffness: 300, damping: 30 }
+    { stiffness: 300, damping: 30 },
   );
 
   const mediaPositionY = useSpring(
     useTransform(scrollYProgress, [0.2, 0.7], [150, -150]),
-    { stiffness: 300, damping: 30 }
+    { stiffness: 300, damping: 30 },
   );
+
+
 
   const textOpacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
   const textPositionY = useSpring(
     useTransform(scrollYProgress, [0, 0.5], [250, 30]),
-    { stiffness: 300, damping: 30 }
+    { stiffness: 300, damping: 30 },
   );
   const hrLineOpacity = useTransform(scrollYProgress, [0.4, 0.45], [0, 1]);
 
@@ -94,28 +96,28 @@ function App() {
   // Use springs for card animations
   const cardWidth = useSpring(
     useTransform(skillScrollYProgress, [0.3, 0.8], [100, 800]),
-    { stiffness: 200, damping: 25 }
+    { stiffness: 200, damping: 25 },
   );
   const cardHeight = useSpring(
     useTransform(skillScrollYProgress, [0.3, 0.8], [50, 450]),
-    { stiffness: 200, damping: 25 }
+    { stiffness: 200, damping: 25 },
   );
   const cardX = useSpring(
     useTransform(skillScrollYProgress, [0.3, 0.8], [200, 0]),
-    { stiffness: 200, damping: 25 }
+    { stiffness: 200, damping: 25 },
   );
   const cardY = useSpring(
     useTransform(skillScrollYProgress, [0.3, 0.8], [150, 0]),
-    { stiffness: 200, damping: 25 }
+    { stiffness: 200, damping: 25 },
   );
 
   const moveUp = useSpring(
     useTransform(skillScrollYProgress, [0, 1], [200, -100]),
-    { stiffness: 200, damping: 25 }
+    { stiffness: 200, damping: 25 },
   );
   const rotateBoxY = useSpring(
     useTransform(skillScrollYProgress, [0.2, 0.8], [-15, 0]),
-    { stiffness: 200, damping: 25 }
+    { stiffness: 200, damping: 25 },
   );
 
   // Audio refs
@@ -242,11 +244,11 @@ function App() {
   // Reduced parallax scroll effect for better performance
   const parallaxScrollBgY = useSpring(
     useTransform(introScrollYProgress, [0, 1], [0, -25]),
-    { stiffness: 100, damping: 30 }
+    { stiffness: 100, damping: 30 },
   );
   const parallaxScrollFrontY = useSpring(
     useTransform(introScrollYProgress, [0, 1], [0, -75]),
-    { stiffness: 100, damping: 30 }
+    { stiffness: 100, damping: 30 },
   );
   const [imageLoaded, setImageLoaded] = useState(false);
   // Image preloading
